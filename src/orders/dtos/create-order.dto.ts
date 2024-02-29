@@ -1,19 +1,13 @@
-import { IsNotEmpty, IsString, Length, IsUUID } from 'class-validator';
-import { Product } from 'src/db';
+import { IsNotEmpty, IsString, IsUUID } from 'class-validator';
 
 export class CreateOrderDTO {
   @IsNotEmpty()
   @IsString()
   @IsUUID()
-  productId: Product['id'];
+  productId: string;
 
   @IsNotEmpty()
   @IsString()
-  @Length(5, 20)
-  client: string;
-
-  @IsNotEmpty()
-  @IsString()
-  @Length(10, 20)
-  address: string;
+  @IsUUID()
+  clientId: string;
 }
