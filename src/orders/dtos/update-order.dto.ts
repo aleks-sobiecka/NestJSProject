@@ -1,9 +1,10 @@
-import { IsNotEmpty, IsString, Length } from 'class-validator';
+import { IsNotEmpty, IsString, Length, IsUUID } from 'class-validator';
 import { Product } from 'src/db';
 
 export class UpdateOrderDTO {
   @IsNotEmpty()
   @IsString()
+  @IsUUID()
   productId: Product['id'];
 
   @IsNotEmpty()
